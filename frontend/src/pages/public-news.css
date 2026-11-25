@@ -1,0 +1,1031 @@
+/* =========================================================
+   SIMPB BAPETEN · Halaman Berita (daftar + detail)
+   Urutan: dasar → hero → daftar → detail → animasi → responsif
+   ========================================================= */
+
+.np-page {
+  --np-blue: #104b7a;
+}
+
+.np-container {
+  width: min(100% - 40px, 1200px);
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+.np-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 40%, rgba(31, 150, 215, 0.29), transparent 38%),
+    linear-gradient(125deg, #071e38, #0a345c 52%, #104b7a);
+}
+
+.np-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(170, 220, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(170, 220, 255, 0.16) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(#000, transparent);
+}
+
+.np-glow {
+  position: absolute;
+  z-index: -1;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: np-glow 9s ease-in-out infinite alternate;
+}
+
+.np-glow-a {
+  right: 4%;
+  top: 5%;
+  background: rgba(35, 195, 255, 0.2);
+}
+
+.np-glow-b {
+  left: 5%;
+  bottom: 0;
+  background: rgba(67, 110, 255, 0.15);
+}
+
+.np-hero-inner {
+  padding-top: 31px;
+  padding-bottom: 86px;
+}
+
+.np-hero-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(136, 220, 255, 0.65), transparent);
+}
+
+.np-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #cce6f8;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.np-back:hover {
+  color: white;
+}
+
+.np-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: 60px;
+  margin-top: 65px;
+}
+
+.np-hero-copy {
+  position: relative;
+  z-index: 2;
+  animation: np-enter 0.8s both;
+}
+
+.np-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(173, 227, 255, 0.24);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #bdeaff;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.np-sep {
+  height: 13px;
+  width: 1px;
+  background: rgba(195, 231, 255, 0.35);
+}
+
+.np-hero-copy h1 {
+  margin-top: 27px;
+  color: white;
+  font-size: clamp(39px, 4.5vw, 65px);
+  font-weight: 900;
+  line-height: 1.13;
+  letter-spacing: -0.05em;
+}
+
+.np-hero-copy h1 span {
+  background: linear-gradient(100deg, #fff, #9ceaff 55%, #83aaff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.np-hero-copy > p {
+  max-width: 565px;
+  margin-top: 25px;
+  color: #c3d8e9;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.np-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 23px;
+  margin-top: 34px;
+}
+
+.np-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 51px;
+  padding: 13px 20px;
+  border: 1px solid #b9edff;
+  border-radius: 13px;
+  background: linear-gradient(120deg, #d8f7ff, #fff);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  color: #104b7a;
+  font-size: 13px;
+  font-weight: 850;
+  transition: transform 0.2s;
+}
+
+.np-primary:hover {
+  transform: translateY(-3px);
+}
+
+.np-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #cce6f8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.np-counter strong {
+  color: white;
+  font-size: 15px;
+}
+
+.np-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 27px;
+  margin-top: 42px;
+  padding-top: 21px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.np-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #c8e5f5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.np-trust svg {
+  color: #78e7e4;
+}
+
+/* Ilustrasi hero */
+.np-art {
+  position: relative;
+  display: grid;
+  min-height: 425px;
+  place-items: center;
+  isolation: isolate;
+}
+
+.np-orbit {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(137, 220, 255, 0.32);
+  border-radius: 50%;
+  transform: rotateX(65deg) rotateZ(20deg);
+  animation: np-orbit 24s linear infinite;
+}
+
+.np-orbit-b {
+  width: 305px;
+  height: 305px;
+  animation-direction: reverse;
+}
+
+.np-art-card {
+  position: relative;
+  width: min(100%, 310px);
+  padding: 23px;
+  border: 1px solid rgba(185, 232, 255, 0.42);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(30, 105, 162, 0.92), rgba(5, 29, 58, 0.96));
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.32), inset 0 1px rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+  transform: perspective(900px) rotateY(-10deg) rotateX(5deg);
+  animation: np-float 7s ease-in-out infinite;
+}
+
+.np-art-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.np-art-icon {
+  display: grid;
+  width: 65px;
+  height: 65px;
+  place-items: center;
+  border: 1px solid rgba(176, 227, 255, 0.34);
+  border-radius: 18px;
+  background: rgba(87, 190, 255, 0.18);
+  color: #c3f0ff;
+}
+
+.np-live {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #bdeaff;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.np-live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #70efd4;
+  box-shadow: 0 0 10px #70efd4;
+}
+
+.np-art-lines {
+  display: grid;
+  gap: 8px;
+  margin: 28px 0;
+}
+
+.np-art-lines i {
+  height: 6px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(132, 225, 255, 0.78), rgba(132, 225, 255, 0.06));
+}
+
+.np-art-lines i:nth-child(2) {
+  width: 76%;
+}
+
+.np-art-lines i:nth-child(3) {
+  width: 52%;
+}
+
+.np-art-bottom {
+  display: grid;
+  gap: 7px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.np-art-bottom span {
+  color: #91dfff;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.np-art-bottom strong {
+  color: white;
+  font-size: 16px;
+}
+
+.np-float {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 15px;
+  border: 1px solid rgba(190, 232, 255, 0.3);
+  border-radius: 14px;
+  background: rgba(13, 66, 109, 0.84);
+  box-shadow: 0 17px 38px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+  color: #e1f5ff;
+  font-size: 11px;
+  font-weight: 800;
+  animation: np-float-small 6s ease-in-out infinite;
+}
+
+.np-float svg {
+  color: #9ceaff;
+}
+
+.np-float-one {
+  right: 0;
+  top: 12%;
+}
+
+.np-float-two {
+  left: 0;
+  bottom: 14%;
+  animation-delay: -2s;
+}
+
+/* ---------------------------------------------------------
+   DAFTAR BERITA
+   --------------------------------------------------------- */
+.np-main {
+  padding-top: 75px;
+  padding-bottom: 90px;
+  scroll-margin-top: 92px;
+}
+
+.np-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.np-kicker {
+  color: #1769aa;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.19em;
+}
+
+.np-heading h2 {
+  margin-top: 13px;
+  color: #104b7a;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+.np-heading p {
+  margin-top: 11px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.np-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 325px);
+  padding: 14px 17px;
+  border: 1px solid #dbe8f4;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 6px 20px rgba(16, 75, 122, 0.04);
+  color: #1769aa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.np-search:focus-within {
+  border-color: #1769aa;
+  box-shadow: 0 0 0 4px rgba(23, 105, 170, 0.12);
+}
+
+.np-search input {
+  min-width: 0;
+  flex: 1;
+  background: transparent;
+  color: #334155;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Berita utama */
+.np-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  margin-top: 40px;
+  border: 1px solid #e0eaf4;
+  border-radius: 27px;
+  background: white;
+  box-shadow: 0 15px 45px rgba(16, 75, 122, 0.07);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.np-feature:hover,
+.np-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 52px rgba(16, 75, 122, 0.13);
+}
+
+.np-feature-media {
+  min-height: 355px;
+  background: #dcecf9;
+}
+
+.np-feature-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 475px;
+  object-fit: cover;
+}
+
+.np-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 100%;
+  min-height: 210px;
+  background:
+    radial-gradient(circle at 75% 20%, #287cb5, transparent 45%),
+    linear-gradient(135deg, #082b4d, #1769aa);
+  color: #c3efff;
+}
+
+.np-placeholder span {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.np-feature-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 38px;
+}
+
+.np-feature-copy h3 {
+  margin-top: 19px;
+  color: #104b7a;
+  font-size: clamp(23px, 2.4vw, 32px);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.np-feature-copy > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 19px;
+  color: #52677a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.np-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.np-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 26px;
+  color: #1769aa;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+/* Kartu berita: tinggi seragam, tautan "Baca selengkapnya" sejajar di bawah */
+.np-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+  margin-top: 35px;
+}
+
+.np-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e0eaf4;
+  border-radius: 23px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(16, 75, 122, 0.05);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.np-card-media {
+  height: 210px;
+  flex: none;
+  overflow: hidden;
+  background: #e4f1fa;
+}
+
+.np-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+
+.np-card:hover img {
+  transform: scale(1.04);
+}
+
+.np-card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 23px;
+}
+
+.np-card-copy h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 13px;
+  color: #104b7a;
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.np-card-copy > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 15px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.np-card-copy .np-read {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+
+/* Pesan status & paginasi */
+.np-message {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 35px;
+  padding: 30px;
+  border: 1px solid #e0eaf4;
+  border-radius: 20px;
+  background: white;
+  color: #104b7a;
+}
+
+.np-message button,
+.np-message a {
+  color: #1769aa;
+  font-weight: 800;
+}
+
+.np-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 35px;
+  color: #104b7a;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.np-pagination button {
+  padding: 10px 16px;
+  border: 1px solid #d5e5f2;
+  border-radius: 11px;
+  background: white;
+  transition: background 0.2s;
+}
+
+.np-pagination button:hover:not(:disabled) {
+  background: #eaf3fb;
+}
+
+.np-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.np-footer {
+  padding: 27px 20px;
+  border-top: 1px solid #e0e8f1;
+  background: white;
+  text-align: center;
+  color: #104b7a;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+/* ---------------------------------------------------------
+   DETAIL BERITA
+   --------------------------------------------------------- */
+.np-detail-inner {
+  padding-top: 38px;
+  padding-bottom: 108px;
+}
+
+.np-detail-heading {
+  max-width: 920px;
+  margin-top: 57px;
+}
+
+.np-detail-heading h1 {
+  max-width: 900px;
+  margin: 24px 0 0;
+  color: white;
+  font-size: clamp(32px, 4.15vw, 54px);
+  font-weight: 900;
+  line-height: 1.23;
+  letter-spacing: -0.037em;
+  text-wrap: balance;
+}
+
+.np-detail-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 28px;
+  row-gap: 13px;
+  margin-top: 29px;
+  color: #cce6f8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.np-detail-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 25px;
+}
+
+.np-detail-meta svg {
+  flex: none;
+}
+
+.np-detail-main {
+  position: relative;
+  max-width: 1080px;
+  min-height: 240px;
+  padding-bottom: 95px;
+}
+
+.np-article {
+  overflow: hidden;
+  margin-top: -45px;
+  border: 1px solid #e0eaf4;
+  border-radius: 27px;
+  background: white;
+  box-shadow: 0 20px 55px rgba(16, 75, 122, 0.08);
+}
+
+.np-article-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 24px;
+  background: linear-gradient(145deg, #edf5fb, #f8fbfe);
+}
+
+.np-article-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 13px;
+}
+
+.np-article-body {
+  padding: 51px clamp(28px, 6vw, 76px) 55px;
+}
+
+.np-article-body > .np-kicker {
+  display: inline-block;
+}
+
+/* Isi berita: tiap paragraf (<p>) diberi jarak yang nyaman dibaca */
+.np-article-text {
+  max-width: 790px;
+  margin-top: 29px;
+  color: #40556b;
+  font-size: 16px;
+  line-height: 2.05;
+  overflow-wrap: anywhere;
+}
+
+.np-article-text p + p {
+  margin-top: 1.2em;
+}
+
+.np-article-end {
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid #e0eaf4;
+}
+
+.np-article-end a {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 42px;
+  color: #1769aa;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* ---------------------------------------------------------
+   FOKUS KEYBOARD
+   --------------------------------------------------------- */
+.np-page a:focus-visible,
+.np-page button:focus-visible {
+  outline: 3px solid rgba(23, 105, 170, 0.45);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---------------------------------------------------------
+   ANIMASI
+   --------------------------------------------------------- */
+@keyframes np-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes np-glow {
+  to {
+    opacity: 0.6;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes np-orbit {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes np-float {
+  0%,
+  100% {
+    transform: perspective(900px) rotateY(-10deg) rotateX(5deg) translateY(0);
+  }
+  50% {
+    transform: perspective(900px) rotateY(-6deg) rotateX(3deg) translateY(-12px);
+  }
+}
+
+@keyframes np-float-small {
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* ---------------------------------------------------------
+   RESPONSIF
+   --------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .np-hero-layout {
+    gap: 30px;
+  }
+
+  .np-art {
+    min-height: 370px;
+  }
+
+  .np-orbit {
+    width: 300px;
+    height: 300px;
+  }
+
+  .np-orbit-b {
+    width: 240px;
+    height: 240px;
+  }
+
+  .np-float-one {
+    right: -3%;
+  }
+
+  .np-float-two {
+    left: -3%;
+  }
+
+  /* 3 kolom terlalu sempit di tablet */
+  .np-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .np-container {
+    width: min(100% - 34px, 1200px);
+  }
+
+  .np-hero-inner {
+    padding-top: 25px;
+    padding-bottom: 58px;
+  }
+
+  .np-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 45px;
+  }
+
+  .np-hero-copy h1 {
+    font-size: clamp(36px, 8vw, 50px);
+  }
+
+  .np-hero-copy > p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .np-actions {
+    gap: 17px;
+  }
+
+  .np-trust {
+    margin-top: 28px;
+  }
+
+  .np-art {
+    min-height: 340px;
+  }
+
+  .np-art-card {
+    width: min(78%, 280px);
+  }
+
+  .np-float-one {
+    right: 0;
+    top: 8%;
+  }
+
+  .np-float-two {
+    left: 0;
+    bottom: 8%;
+  }
+
+  .np-main {
+    padding-top: 56px;
+    padding-bottom: 65px;
+  }
+
+  .np-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .np-feature-media {
+    min-height: 235px;
+    height: 245px;
+  }
+
+  .np-feature-copy {
+    padding: 27px;
+  }
+
+  .np-cards {
+    gap: 15px;
+  }
+
+  .np-card-copy {
+    padding: 18px;
+  }
+
+  /* Detail */
+  .np-detail-inner {
+    padding-top: 26px;
+    padding-bottom: 82px;
+  }
+
+  .np-detail-heading {
+    margin-top: 40px;
+  }
+
+  .np-detail-heading h1 {
+    margin-top: 19px;
+    font-size: clamp(29px, 7vw, 39px);
+    line-height: 1.25;
+  }
+
+  .np-detail-meta {
+    gap: 9px 20px;
+    margin-top: 23px;
+  }
+
+  .np-detail-main {
+    padding-bottom: 65px;
+  }
+
+  .np-article {
+    margin-top: -34px;
+    border-radius: 20px;
+  }
+
+  .np-article-media {
+    min-height: 130px;
+    padding: 13px;
+  }
+
+  .np-article-media img {
+    max-height: 330px;
+    border-radius: 10px;
+  }
+
+  .np-article-body {
+    padding: 30px 23px 35px;
+  }
+
+  .np-article-text {
+    margin-top: 23px;
+    font-size: 15px;
+    line-height: 1.95;
+  }
+
+  .np-article-end {
+    margin-top: 33px;
+    padding-top: 21px;
+  }
+}
+
+@media (max-width: 540px) {
+  .np-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .np-search {
+    width: 100%;
+  }
+
+  .np-hero-copy h1 {
+    font-size: 36px;
+  }
+
+  .np-eyebrow {
+    font-size: 9px;
+    gap: 7px;
+  }
+
+  .np-art {
+    min-height: 305px;
+  }
+
+  .np-float {
+    font-size: 9px;
+    padding: 11px;
+  }
+
+  .np-counter {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-page *,
+  .np-page *::before,
+  .np-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

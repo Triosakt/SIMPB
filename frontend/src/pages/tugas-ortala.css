@@ -1,0 +1,1650 @@
+.ortala-page {
+  --ortala-blue: #104b7a;
+  --ortala-primary: #1769aa;
+  --ortala-ink: #102c48;
+  --ortala-muted: #60758a;
+  --ortala-line: #e1eaf3;
+  color: var(--ortala-ink);
+  background: #fff;
+  overflow: clip;
+  font-family: inherit;
+}
+
+.ortala-page * { box-sizing: border-box; }
+.ortala-page a { text-decoration: none; }
+.ortala-page section[id] { scroll-margin-top: 30px; }
+.ortala-topline {
+  height: 4px;
+  background: linear-gradient(90deg, #104b7a, #1769aa, #5ab7ed, #1769aa);
+  background-size: 220% 100%;
+  animation: ortala-gradient 9s ease infinite;
+}
+
+.ortala-header {
+  position: relative;
+  z-index: 10;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(22px, 6vw, 88px);
+  border-bottom: 1px solid #e9eff5;
+  background: rgba(255,255,255,.94);
+}
+.ortala-brand, .ortala-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ortala-blue);
+}
+.ortala-brand-mark, .ortala-footer-mark {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  color: white;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1769aa, #0b365d);
+  box-shadow: 0 8px 20px #104b7a2b;
+}
+.ortala-brand strong, .ortala-footer-brand strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: -.04em;
+}
+.ortala-brand small, .ortala-footer-brand small {
+  display: block;
+  margin-top: 3px;
+  color: #72859a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.ortala-header-nav { display: flex; align-items: center; gap: 24px; }
+.ortala-header-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #536a80;
+  font-size: 12px;
+  font-weight: 750;
+  transition: color .25s ease, transform .25s ease;
+}
+.ortala-header-nav a:hover { color: var(--ortala-primary); transform: translateY(-2px); }
+.ortala-header-nav .ortala-nav-home {
+  padding: 11px 15px;
+  border: 1px solid #d9e6f1;
+  border-radius: 10px;
+  color: var(--ortala-blue);
+  background: #f8fbfe;
+}
+
+.ortala-hero {
+  position: relative;
+  isolation: isolate;
+  color: white;
+  background:
+    radial-gradient(ellipse at 79% 50%, #13578b 0%, transparent 37%),
+    radial-gradient(ellipse at 7% 95%, #0d385e 0%, transparent 43%),
+    linear-gradient(117deg, #071d33 0%, #0b2d4d 49%, #104b7a 100%);
+}
+.ortala-hero-grid {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: .13;
+  background-image: linear-gradient(#b6dcff 1px, transparent 1px), linear-gradient(90deg, #b6dcff 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(90deg, transparent, black 40%, black);
+}
+.ortala-hero-glow {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.ortala-glow-one { top: 5%; right: 13%; background: #3a9de8; opacity: .19; animation: ortala-glow 9s ease-in-out infinite alternate; }
+.ortala-glow-two { bottom: -16%; left: 38%; background: #63d3ff; opacity: .1; animation: ortala-glow 12s ease-in-out infinite alternate-reverse; }
+
+.ortala-hero-inner {
+  width: min(1240px, 100%);
+  min-height: 620px;
+  margin: auto;
+  padding: 78px 30px 70px;
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+  align-items: center;
+  gap: 22px;
+}
+.ortala-hero-copy { position: relative; z-index: 2; animation: ortala-rise .85s both; }
+.ortala-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .18em;
+}
+.ortala-eyebrow-light { color: #a8d8ff; }
+.ortala-status-dot, .ortala-live-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #6ee7b7;
+  box-shadow: 0 0 0 5px #6ee7b71c, 0 0 16px #6ee7b7;
+}
+.ortala-hero h1 {
+  max-width: 660px;
+  margin: 24px 0 20px;
+  font-size: clamp(40px, 5.2vw, 68px);
+  font-weight: 850;
+  line-height: 1.04;
+  letter-spacing: -.055em;
+}
+.ortala-hero h1 span, .ortala-structure-heading h2 span { color: #76c8ff; }
+.ortala-hero-copy > p {
+  max-width: 530px;
+  margin: 0;
+  color: #c0d2e4;
+  font-size: 15px;
+  line-height: 1.9;
+}
+.ortala-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+.ortala-button-primary, .ortala-button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 47px;
+  padding: 0 18px;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.ortala-button-primary {
+  color: #0b2d4d;
+  background: linear-gradient(135deg, #fff, #cceaff);
+  box-shadow: 0 10px 26px #0002;
+}
+.ortala-button-ghost { border: 1px solid #ffffff38; color: white; background: #ffffff09; }
+.ortala-button-primary:hover, .ortala-button-ghost:hover { transform: translateY(-3px); box-shadow: 0 12px 30px #0002; }
+.ortala-hero-note { display: flex; align-items: center; gap: 9px; margin-top: 32px; color: #a8bfd3; font-size: 10px; }
+.ortala-hero-note svg { color: #77d5c0; }
+
+.ortala-visual {
+  position: relative;
+  min-height: 470px;
+  display: grid;
+  place-items: center;
+  perspective: 1000px;
+  animation: ortala-visual-enter 1.1s .1s both;
+}
+.ortala-visual-orbit {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  border: 1px solid #9cd8ff26;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.orbit-outer { width: 410px; height: 410px; transform: translate(-50%, -50%) rotateX(67deg) rotateZ(-22deg); animation: ortala-orbit 24s linear infinite; }
+.orbit-middle { width: 330px; height: 330px; border-style: dashed; transform: translate(-50%, -50%) rotateX(67deg) rotateZ(38deg); animation: ortala-orbit-reverse 31s linear infinite; }
+.orbit-inner { width: 260px; height: 260px; border-color: #bce9ff35; transform: translate(-50%, -50%) rotateX(68deg) rotateZ(6deg); }
+.ortala-visual-axis { position: absolute; width: 1px; height: 390px; background: linear-gradient(transparent, #7ccaff4d, transparent); }
+.axis-one { transform: rotate(45deg); }
+.axis-two { transform: rotate(-45deg); opacity: .6; }
+.ortala-core {
+  position: relative;
+  z-index: 2;
+  width: 188px;
+  height: 188px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #d6efff73;
+  border-radius: 36px;
+  color: white;
+  background: linear-gradient(145deg, #2478b6d9, #0b2b49f2 73%);
+  box-shadow: 0 0 0 9px #a6ddff0a, 0 0 0 22px #a6ddff07, 0 24px 75px #020c18a1, inset 0 1px #ffffff50;
+  transform: rotateX(4deg) rotateY(-7deg);
+  animation: ortala-core-float 6s ease-in-out infinite;
+}
+.ortala-core > svg { color: #bce8ff; filter: drop-shadow(0 0 12px #81cfff80); }
+.ortala-core strong { font-size: 20px; font-weight: 900; letter-spacing: .16em; }
+.ortala-core > span { color: #c0dced; font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+.ortala-core-shine { position: absolute; top: 0; left: 14%; right: 14%; height: 1px; background: #fff; opacity: .7; }
+.ortala-core-pulse { position: absolute; inset: -12px; border: 1px solid #8ad3ff55; border-radius: 43px; animation: ortala-pulse 3.2s ease-out infinite; }
+.ortala-node {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid #c6e6ff35;
+  border-radius: 11px;
+  color: #d6edff;
+  background: #092743d9;
+  box-shadow: 0 12px 28px #020d1b45, inset 0 1px #ffffff12;
+  backdrop-filter: blur(12px);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .1em;
+  animation: ortala-node-float 5s ease-in-out infinite;
+}
+.ortala-node svg { color: #83cfff; }
+.node-top { top: 7%; left: 43%; }
+.node-left { top: 45%; left: 0; animation-delay: -1.2s; }
+.node-right { top: 45%; right: -1%; animation-delay: -2.3s; }
+.node-bottom { bottom: 8%; left: 35%; animation-delay: -3s; }
+.ortala-float-card {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #d7eaff36;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #174a70f0, #09233cf5);
+  box-shadow: 0 18px 42px #0003, inset 0 1px #ffffff20;
+  backdrop-filter: blur(14px);
+  animation: ortala-card-float 7s ease-in-out infinite;
+}
+.ortala-float-card strong { display: block; color: white; font-size: 10px; }
+.ortala-float-card small { display: block; margin-top: 4px; color: #9bbbd5; font-size: 8px; }
+.ortala-float-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 10px; color: #8bd2ff; background: #63baff18; }
+.float-card-one { top: 23%; right: -1%; }
+.float-card-two { bottom: 20%; left: 0; animation-delay: -3.4s; }
+.ortala-live-dot { width: 6px; height: 6px; margin-left: 4px; }
+.ortala-visual-caption { position: absolute; right: 0; bottom: 1%; display: flex; gap: 12px; color: #7eaccd; font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+.ortala-visual-caption span:first-child { color: #b7e5ff; }
+.ortala-hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(22px, 6vw, 88px);
+  border-top: 1px solid #ffffff19;
+  color: #83a9c7;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .14em;
+}
+.ortala-hero-bottom span:last-child { display: flex; align-items: center; gap: 9px; }
+.ortala-hero-bottom i { width: 3px; height: 3px; border-radius: 50%; background: #76c8ff; }
+
+.ortala-section { width: min(1120px, 100%); margin: 0 auto; padding: 94px 28px; }
+.ortala-section-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; color: #70859a; font-size: 9px; font-weight: 850; letter-spacing: .17em; }
+.ortala-section-kicker span:first-child { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #d8e5f0; border-radius: 9px; color: var(--ortala-primary); background: #f4f9fd; letter-spacing: 0; }
+.ortala-intro-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: start; }
+.ortala-intro h2, .ortala-heading-row h2, .ortala-structure-heading h2 {
+  margin: 0;
+  color: #102d49;
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 850;
+  line-height: 1.13;
+  letter-spacing: -.045em;
+}
+.ortala-intro h2 span { display: block; color: var(--ortala-primary); }
+.ortala-intro-text p { color: #64798d; font-size: 13px; line-height: 1.9; }
+.ortala-intro-text .ortala-lead { margin-top: 0; color: #294b69; font-size: 16px; font-weight: 650; line-height: 1.85; }
+.ortala-principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 54px; }
+.ortala-principle-card { height: 100%; min-height: 166px; padding: 23px; border: 1px solid #e2ebf3; border-radius: 17px; background: linear-gradient(140deg, #fff, #f8fbfe); transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+.ortala-principle-card:hover { border-color: #b4d9f5; box-shadow: 0 18px 40px #1c527b0c; transform: translateY(-4px); }
+.ortala-principle-top { display: flex; align-items: center; justify-content: space-between; color: var(--ortala-primary); }
+.ortala-principle-top > span { color: #9db0c2; font-size: 10px; font-weight: 850; letter-spacing: .1em; }
+.ortala-principle-card h3 { margin: 22px 0 7px; color: #173b5a; font-size: 15px; font-weight: 800; }
+.ortala-principle-card p { margin: 0; color: #708398; font-size: 11px; line-height: 1.8; }
+
+.ortala-duties { background: linear-gradient(180deg, #f5f9fd, #fafdff); border-top: 1px solid #edf3f8; border-bottom: 1px solid #eaf1f7; }
+.ortala-duties-inner { padding-top: 88px; padding-bottom: 94px; }
+.ortala-kicker-blue { color: #62819b; }
+.ortala-kicker-blue span:first-child { background: #eaf4fc; border-color: #d6e9f8; }
+.ortala-heading-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+.ortala-heading-row > div:first-child { max-width: 670px; }
+.ortala-heading-row p { max-width: 600px; margin: 13px 0 0; color: #71869a; font-size: 13px; line-height: 1.8; }
+.ortala-heading-symbol { display: grid; place-items: center; width: 62px; height: 62px; border: 1px solid #d9e9f7; border-radius: 18px; color: var(--ortala-primary); background: white; box-shadow: 0 10px 24px #164d7510; }
+.ortala-duty-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+.ortala-duty-card { position: relative; height: 100%; min-height: 285px; overflow: hidden; padding: 24px; border: 1px solid #e0eaf3; border-radius: 17px; background: white; box-shadow: 0 8px 22px #1d4f7505; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.ortala-duty-card:hover { transform: translateY(-5px); border-color: #b6d8f1; box-shadow: 0 20px 42px #184b7112; }
+.ortala-duty-card-top { display: flex; justify-content: space-between; align-items: center; }
+.ortala-duty-number { color: #9eb3c6; font-size: 10px; font-weight: 850; letter-spacing: .13em; }
+.ortala-duty-icon { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #e0edf8; border-radius: 13px; color: #1769aa; background: #f1f8fe; transition: transform .3s ease, background .3s ease; }
+.ortala-duty-card:hover .ortala-duty-icon { transform: rotate(-5deg) scale(1.06); background: #e3f3ff; }
+.ortala-duty-card h3 { margin: 22px 0 9px; color: #183b59; font-size: 16px; font-weight: 850; letter-spacing: -.025em; }
+.ortala-duty-card > p { min-height: 76px; margin: 0; color: #6b8094; font-size: 11px; line-height: 1.85; }
+.ortala-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
+.ortala-tags span { padding: 6px 8px; border-radius: 6px; color: #52718d; background: #f1f6fa; font-size: 8px; font-weight: 750; }
+.ortala-card-line { position: absolute; right: 24px; bottom: 0; left: 24px; height: 2px; background: linear-gradient(90deg, #1769aa, #9bdcff, transparent); transform: scaleX(.18); transform-origin: left; transition: transform .4s ease; }
+.ortala-duty-card:hover .ortala-card-line { transform: scaleX(1); }
+
+.ortala-structure { padding-top: 96px; padding-bottom: 100px; }
+.ortala-structure-heading { display: flex; justify-content: space-between; align-items: end; gap: 35px; margin-bottom: 45px; }
+.ortala-structure-heading h2 { max-width: 440px; }
+.ortala-structure-heading p { max-width: 400px; margin: 0 0 3px; color: #6e8296; font-size: 12px; line-height: 1.9; }
+.ortala-org-chart { padding: 32px; border: 1px solid #e2ebf3; border-radius: 24px; background: radial-gradient(ellipse at 50% 0%, #eaf5ff, transparent 57%), #fbfdff; }
+.ortala-org-root { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 13px; width: fit-content; max-width: 100%; margin: auto; padding: 16px 25px; border: 1px solid #c7e1f5; border-radius: 15px; color: white; background: linear-gradient(130deg, #104b7a, #1769aa); box-shadow: 0 13px 30px #104b7a20; }
+.ortala-org-root-icon { display: grid; place-items: center; width: 41px; height: 41px; border: 1px solid #ffffff40; border-radius: 12px; background: #ffffff14; }
+.ortala-org-root small { display: block; margin-bottom: 5px; color: #b9e0ff; font-size: 8px; font-weight: 800; letter-spacing: .16em; }
+.ortala-org-root strong { display: block; font-size: 13px; font-weight: 850; }
+.ortala-org-connector { position: relative; display: flex; justify-content: space-around; width: 50%; height: 55px; margin: 0 auto; border-top: 0; }
+.ortala-org-connector::before { position: absolute; top: 0; left: 50%; width: 1px; height: 28px; content: ""; background: #a9c9e3; }
+.ortala-org-connector::after { position: absolute; top: 27px; left: 25%; right: 25%; height: 1px; content: ""; background: #a9c9e3; }
+.ortala-org-connector span { position: relative; width: 1px; height: 27px; background: #a9c9e3; }
+.ortala-unit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.ortala-unit-card { padding: 26px; border: 1px solid #e1eaf3; border-radius: 18px; background: #fff; box-shadow: 0 10px 30px #164b7207; transition: transform .3s ease, box-shadow .3s ease; }
+.ortala-unit-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px #164b7212; }
+.ortala-unit-head { display: flex; justify-content: space-between; align-items: center; color: #1769aa; }
+.ortala-unit-number { color: #91a8bc; font-size: 10px; font-weight: 850; letter-spacing: .13em; }
+.ortala-unit-subtitle { display: block; margin-top: 24px; color: #7392ac; font-size: 8px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.ortala-unit-card h3 { margin: 7px 0 11px; color: #173a58; font-size: 20px; font-weight: 850; letter-spacing: -.03em; }
+.ortala-unit-card > p { min-height: 60px; margin: 0; color: #6c8195; font-size: 11px; line-height: 1.85; }
+.ortala-unit-divider { height: 1px; margin: 22px 0 18px; background: #e8eef4; }
+.ortala-unit-card h4 { margin: 0 0 13px; color: #244b6d; font-size: 10px; font-weight: 850; letter-spacing: .04em; }
+.ortala-unit-card ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.ortala-unit-card li { display: flex; align-items: flex-start; gap: 9px; color: #627b91; font-size: 10px; line-height: 1.7; }
+.ortala-unit-card li svg { flex: 0 0 auto; margin-top: 1px; color: #2483c4; }
+.ortala-unit-card.governance .ortala-unit-head > svg { color: #168b94; }
+.ortala-unit-card.governance .ortala-unit-card li svg { color: #168b94; }
+.ortala-org-note { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 25px 0 0; color: #8a9caf; font-size: 9px; text-align: center; }
+.ortala-org-note svg { color: #4384b4; flex: 0 0 auto; }
+
+.ortala-workflow-section { border-top: 1px solid #e7eff6; background: #f5f9fd; }
+.ortala-workflow-inner { padding-top: 90px; padding-bottom: 95px; }
+.ortala-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 35px; }
+.ortala-flow-wrap { position: relative; }
+.ortala-flow-card { display: flex; flex-direction: column; height: 100%; min-height: 245px; padding: 20px; border: 1px solid #e0eaf3; border-radius: 16px; color: inherit; background: white; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.ortala-flow-card:hover { transform: translateY(-5px); border-color: #b5d8f2; box-shadow: 0 17px 35px #154b7412; }
+.ortala-flow-number { color: #a0b4c7; font-size: 9px; font-weight: 850; letter-spacing: .13em; }
+.ortala-flow-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-top: 19px; border-radius: 12px; color: #1769aa; background: #edf7ff; }
+.ortala-flow-card h3 { margin: 17px 0 8px; color: #193e5e; font-size: 13px; font-weight: 850; line-height: 1.5; }
+.ortala-flow-card p { flex: 1; margin: 0; color: #75899b; font-size: 10px; line-height: 1.8; }
+.ortala-flow-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 18px; color: #1769aa; font-size: 9px; font-weight: 850; }
+.ortala-flow-connector { position: absolute; z-index: 2; top: 40px; right: -15px; display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid #d8e8f5; border-radius: 50%; color: #6d9bc0; background: #f5f9fd; }
+
+.ortala-cta-section { padding: 0 28px 78px; background: #f5f9fd; }
+.ortala-cta { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: space-between; gap: 30px; width: min(1064px, 100%); min-height: 300px; overflow: hidden; margin: auto; padding: 47px 54px; border: 1px solid #24577d; border-radius: 23px; color: white; background: radial-gradient(ellipse at 92% 20%, #1c6397, transparent 43%), linear-gradient(115deg, #08223b, #104b7a); box-shadow: 0 22px 55px #103d6315; }
+.ortala-cta-pattern { position: absolute; z-index: -1; inset: 0; opacity: .12; background-image: linear-gradient(#d8eeff 1px, transparent 1px), linear-gradient(90deg, #d8eeff 1px, transparent 1px); background-size: 34px 34px; mask-image: linear-gradient(90deg, transparent, black); }
+.ortala-cta-content { max-width: 650px; }
+.ortala-cta-label { display: inline-flex; align-items: center; gap: 7px; color: #a5d9ff; font-size: 9px; font-weight: 850; letter-spacing: .15em; }
+.ortala-cta h2 { margin: 17px 0 12px; font-size: clamp(27px, 3.7vw, 40px); font-weight: 850; line-height: 1.16; letter-spacing: -.04em; }
+.ortala-cta h2 span { display: block; color: #85d0ff; }
+.ortala-cta p { max-width: 520px; margin: 0; color: #c0d2e2; font-size: 11px; line-height: 1.9; }
+.ortala-cta-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 23px; }
+.ortala-cta-primary, .ortala-cta-secondary { display: inline-flex; align-items: center; gap: 9px; padding: 12px 15px; border-radius: 10px; font-size: 10px; font-weight: 850; transition: transform .25s ease; }
+.ortala-cta-primary { color: #103c60; background: #e6f5ff; }
+.ortala-cta-secondary { border: 1px solid #ffffff3b; color: white; }
+.ortala-cta-primary:hover, .ortala-cta-secondary:hover { transform: translateY(-3px); }
+.ortala-cta-emblem { display: flex; flex-direction: column; align-items: center; gap: 14px; min-width: 145px; color: #9bdcff; animation: ortala-emblem-float 5s ease-in-out infinite; }
+.ortala-cta-emblem svg { filter: drop-shadow(0 0 20px #8ed8ff38); }
+.ortala-cta-emblem span { font-size: 8px; font-weight: 850; letter-spacing: .17em; }
+
+.ortala-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 23px clamp(22px, 6vw, 88px); border-top: 1px solid #e5edf4; background: white; }
+.ortala-footer-mark { width: 38px; height: 38px; border-radius: 11px; }
+.ortala-footer-brand strong { font-size: 13px; }
+.ortala-footer-brand small { font-size: 8px; letter-spacing: .02em; }
+.ortala-footer-copy { color: #8a9aab; font-size: 9px; }
+.ortala-footer-back { display: inline-flex; align-items: center; gap: 5px; color: #1769aa; font-size: 10px; font-weight: 800; }
+
+.ortala-reveal { animation: ortala-reveal .8s both; animation-timeline: view(); animation-range: entry 0% entry 28%; }
+.ortala-reveal.delay-0 { animation-delay: .02s; }
+.ortala-reveal.delay-1 { animation-delay: .1s; }
+.ortala-reveal.delay-2 { animation-delay: .18s; }
+.ortala-reveal.delay-3 { animation-delay: .24s; }
+@keyframes ortala-gradient { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes ortala-rise { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ortala-visual-enter { from { opacity: 0; transform: translateY(20px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes ortala-glow { from { transform: translate3d(-12px, -8px, 0) scale(.9); } to { transform: translate3d(20px, 18px, 0) scale(1.14); } }
+@keyframes ortala-orbit { from { transform: translate(-50%, -50%) rotateX(67deg) rotateZ(-22deg); } to { transform: translate(-50%, -50%) rotateX(67deg) rotateZ(338deg); } }
+@keyframes ortala-orbit-reverse { from { transform: translate(-50%, -50%) rotateX(67deg) rotateZ(38deg); } to { transform: translate(-50%, -50%) rotateX(67deg) rotateZ(-322deg); } }
+@keyframes ortala-core-float { 0%,100% { transform: translateY(0) rotateX(4deg) rotateY(-7deg); } 50% { transform: translateY(-8px) rotateX(7deg) rotateY(-3deg); } }
+@keyframes ortala-pulse { 0% { transform: scale(.96); opacity: .7; } 75%,100% { transform: scale(1.13); opacity: 0; } }
+@keyframes ortala-node-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+@keyframes ortala-card-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+@keyframes ortala-emblem-float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
+@keyframes ortala-reveal { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 950px) {
+  .ortala-hero-inner { grid-template-columns: 1fr; padding-top: 66px; gap: 0; }
+  .ortala-hero-copy { max-width: 720px; }
+  .ortala-visual { min-height: 450px; margin-top: 10px; }
+  .ortala-hero h1 { max-width: 720px; }
+  .ortala-duty-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ortala-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+  .ortala-flow-connector { display: none; }
+  .ortala-structure-heading { align-items: start; flex-direction: column; gap: 16px; }
+  .ortala-structure-heading p { max-width: 600px; }
+}
+@media (max-width: 640px) {
+  .ortala-header { min-height: 68px; padding: 12px 17px; }
+  .ortala-brand-mark { width: 39px; height: 39px; }
+  .ortala-brand strong { font-size: 16px; }
+  .ortala-brand small { font-size: 7px; }
+  .ortala-header-nav { gap: 13px; }
+  .ortala-header-nav a { font-size: 10px; }
+  .ortala-header-nav > a:first-child { font-size: 0; gap: 0; }
+  .ortala-header-nav > a:first-child svg { width: 18px; height: 18px; }
+  .ortala-header-nav .ortala-nav-home { padding: 9px 10px; }
+  .ortala-hero-inner { min-height: 0; padding: 52px 21px 28px; }
+  .ortala-hero h1 { margin-top: 19px; font-size: clamp(37px, 10vw, 52px); }
+  .ortala-hero-copy > p { font-size: 13px; line-height: 1.8; }
+  .ortala-hero-actions { gap: 9px; }
+  .ortala-button-primary, .ortala-button-ghost { min-height: 43px; padding: 0 13px; font-size: 10px; }
+  .ortala-hero-note { align-items: flex-start; font-size: 9px; line-height: 1.7; }
+  .ortala-visual { min-height: 345px; margin: 12px -8px 0; transform: scale(.9); transform-origin: top center; }
+  .ortala-visual-orbit.orbit-outer { width: 330px; height: 330px; }
+  .ortala-visual-orbit.orbit-middle { width: 270px; height: 270px; }
+  .ortala-visual-orbit.orbit-inner { width: 210px; height: 210px; }
+  .ortala-core { width: 155px; height: 155px; border-radius: 29px; }
+  .ortala-core > svg { width: 39px; height: 39px; }
+  .ortala-core strong { font-size: 17px; }
+  .ortala-node { gap: 5px; padding: 8px; font-size: 7px; }
+  .node-left { left: -2%; }
+  .node-right { right: -2%; }
+  .node-top { left: 38%; }
+  .node-bottom { left: 29%; }
+  .ortala-float-card { gap: 7px; padding: 8px; }
+  .ortala-float-icon { width: 29px; height: 29px; }
+  .ortala-float-card strong { font-size: 9px; }
+  .ortala-float-card small { font-size: 7px; }
+  .float-card-one { right: -3%; top: 17%; }
+  .float-card-two { left: -2%; bottom: 14%; }
+  .ortala-visual-caption { right: 5%; bottom: 0; font-size: 6px; }
+  .ortala-hero-bottom { flex-direction: column; padding: 13px 20px; font-size: 7px; }
+  .ortala-section { padding: 65px 20px; }
+  .ortala-intro-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ortala-intro h2, .ortala-heading-row h2, .ortala-structure-heading h2 { font-size: 32px; }
+  .ortala-intro-text .ortala-lead { font-size: 14px; }
+  .ortala-principles { grid-template-columns: 1fr; gap: 11px; margin-top: 30px; }
+  .ortala-principle-card { min-height: 0; padding: 19px; }
+  .ortala-principle-card h3 { margin-top: 15px; }
+  .ortala-duty-grid { grid-template-columns: 1fr; gap: 12px; }
+  .ortala-duty-card { min-height: 0; padding: 21px; }
+  .ortala-duty-card > p { min-height: 0; }
+  .ortala-heading-symbol { width: 47px; height: 47px; flex: 0 0 auto; }
+  .ortala-org-chart { padding: 17px 12px; border-radius: 17px; }
+  .ortala-org-root { gap: 9px; padding: 12px; }
+  .ortala-org-root-icon { width: 34px; height: 34px; }
+  .ortala-org-root strong { font-size: 10px; }
+  .ortala-org-connector { width: 70%; height: 39px; }
+  .ortala-org-connector::before { height: 20px; }
+  .ortala-org-connector::after { top: 19px; }
+  .ortala-org-connector span { height: 20px; }
+  .ortala-unit-grid { grid-template-columns: 1fr; gap: 13px; }
+  .ortala-unit-card { padding: 21px; }
+  .ortala-unit-card h3 { font-size: 18px; }
+  .ortala-unit-card > p { min-height: 0; }
+  .ortala-org-note { align-items: flex-start; font-size: 8px; line-height: 1.7; text-align: left; }
+  .ortala-flow { grid-template-columns: 1fr; gap: 11px; }
+  .ortala-flow-card { min-height: 0; padding: 19px; }
+  .ortala-flow-icon { margin-top: 13px; }
+  .ortala-flow-card h3 { margin-top: 13px; }
+  .ortala-flow-card p { min-height: 0; }
+  .ortala-cta-section { padding: 0 15px 50px; }
+  .ortala-cta { min-height: 0; padding: 30px 23px; border-radius: 18px; }
+  .ortala-cta-emblem { display: none; }
+  .ortala-cta h2 { font-size: 30px; }
+  .ortala-cta p { font-size: 10px; }
+  .ortala-footer { flex-wrap: wrap; padding: 20px; }
+  .ortala-footer-copy { order: 3; width: 100%; line-height: 1.7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ortala-page *, .ortala-page *::before, .ortala-page *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .ortala-reveal { opacity: 1; transform: none; }
+}
+
+/* =========================================
+   STRUKTUR ORGANISASI / HIERARCHY
+========================================= */
+
+.ortala-hierarchy {
+  width: 100%;
+  padding: 48px 30px 38px;
+  border: 1px solid #e2eaf3;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 0%, #edf5ff 0%, transparent 55%),
+    #fbfdff;
+  overflow: hidden;
+}
+
+/* PERSON */
+.ortala-person {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ortala-person img {
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(15, 42, 75, 0.12);
+  background: #eaf1f8;
+}
+
+.ortala-person-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.ortala-person-info strong {
+  color: #172f4d;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.ortala-person-info span {
+  color: #526981;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* PENGELOLA */
+.ortala-top-person {
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ortala-top-person img {
+  width: 126px;
+  height: 126px;
+}
+
+.ortala-top-person .ortala-person-info strong {
+  font-size: 19px;
+}
+
+.ortala-top-person .ortala-person-info span {
+  font-size: 18px;
+}
+
+/* GARIS PENGHUBUNG UTAMA */
+.ortala-hierarchy-connector {
+  position: relative;
+  width: 62%;
+  height: 90px;
+  margin: 0 auto;
+}
+
+.ortala-vertical-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 35px;
+  width: 2px;
+  background: #3769a9;
+}
+
+.ortala-horizontal-line {
+  position: absolute;
+  top: 35px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: #3769a9;
+}
+
+.ortala-left-line,
+.ortala-right-line {
+  position: absolute;
+  top: 35px;
+  height: 25px;
+  width: 2px;
+  background: #3769a9;
+}
+
+.ortala-left-line {
+  left: 10%;
+}
+
+.ortala-right-line {
+  right: 10%;
+}
+
+/* GRID TIM */
+.ortala-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 55px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.ortala-team {
+  min-width: 0;
+  position: relative;
+}
+
+/* KETUA TIM */
+.ortala-team-leader {
+  min-height: 150px;
+  align-items: center;
+}
+
+.ortala-team-leader img {
+  width: 124px;
+  height: 124px;
+}
+
+.ortala-team-leader .ortala-person-info strong {
+  font-size: 18px;
+}
+
+/* GARIS KE ANGGOTA */
+.ortala-member-connector {
+  position: relative;
+  width: 2px;
+  height: 52px;
+  margin-left: 61px;
+  background: #3769a9;
+}
+
+.ortala-connector-double {
+  height: 52px;
+}
+
+.ortala-members {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 0;
+}
+
+.ortala-members-double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  position: relative;
+}
+
+.ortala-members-double::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #3769a9;
+}
+
+.ortala-members-double .ortala-member {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.ortala-members-double .ortala-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #3769a9;
+}
+
+.ortala-member img {
+  width: 118px;
+  height: 118px;
+}
+
+.ortala-member .ortala-person-info {
+  text-align: center;
+}
+
+.ortala-member .ortala-person-info span {
+  font-weight: 600;
+  color: #344e6b;
+}
+
+/* CATATAN */
+.ortala-hierarchy-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 45px;
+  color: #6b819a;
+  font-size: 12px;
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 768px) {
+  .ortala-hierarchy {
+    padding: 35px 20px;
+  }
+
+  .ortala-team-grid {
+    gap: 25px;
+  }
+
+  .ortala-person {
+    gap: 10px;
+  }
+
+  .ortala-person img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .ortala-team-leader img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .ortala-person-info strong {
+    font-size: 14px;
+  }
+
+  .ortala-person-info span {
+    font-size: 13px;
+  }
+
+  .ortala-members-double {
+    gap: 10px;
+  }
+
+  .ortala-member img {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 560px) {
+  .ortala-hierarchy {
+    padding: 30px 15px;
+  }
+
+  .ortala-top-person {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ortala-hierarchy-connector {
+    display: none;
+  }
+
+  .ortala-team-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 35px;
+  }
+
+  .ortala-team {
+    padding: 18px;
+    border: 1px solid #e1eaf4;
+    border-radius: 18px;
+    background: white;
+  }
+
+  .ortala-team-leader {
+    min-height: auto;
+  }
+
+  .ortala-member-connector {
+    height: 35px;
+    margin-left: 46px;
+  }
+
+  .ortala-members-double {
+    gap: 8px;
+  }
+
+  .ortala-member img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .ortala-hierarchy-note {
+    text-align: center;
+    line-height: 1.6;
+  }
+}
+.ortala-structure {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+
+.ortala-structure-heading {
+  margin-bottom: 28px;
+}
+
+.ortala-org-chart {
+  margin-top: 0;
+}
+
+.ortala-hierarchy {
+  padding-top: 30px;
+}
+
+/* RAPINYA_STRUKTUR_TIM_V2 */
+
+/* AREA BAGAN ORGANISASI */
+.ortala-org-chart {
+  width: 100%;
+  margin: 48px auto 0;
+}
+
+.ortala-hierarchy {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 36px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, .22);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, .10), transparent 38%),
+    linear-gradient(145deg, #ffffff, #f5f9ff);
+  box-shadow: 0 24px 70px rgba(15, 45, 85, .08);
+}
+
+/* PENGELOLA KEGIATAN */
+.ortala-top-person {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: fit-content;
+  min-width: 290px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  border: 1px solid rgba(59, 130, 246, .24);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(30, 64, 175, .10);
+}
+
+.ortala-top-person img {
+  width: 88px;
+  height: 88px;
+  flex: 0 0 88px;
+  object-fit: cover;
+  border: 4px solid #e5efff;
+  border-radius: 50%;
+}
+
+.ortala-person-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ortala-person-info strong {
+  color: #2563a8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.ortala-person-info span {
+  color: #172b45;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* GARIS PENGHUBUNG */
+.ortala-hierarchy-connector {
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 64px;
+  margin: 0 auto;
+  border-top: 0;
+}
+
+.ortala-vertical-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 32px;
+  background: #a8c5e8;
+  transform: translateX(-50%);
+}
+
+.ortala-horizontal-line {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #a8c5e8;
+}
+
+.ortala-left-line,
+.ortala-right-line {
+  position: absolute;
+  top: 32px;
+  width: 2px;
+  height: 32px;
+  background: #a8c5e8;
+}
+
+.ortala-left-line {
+  left: 0;
+}
+
+.ortala-right-line {
+  right: 0;
+}
+
+/* DUA TIM */
+.ortala-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.ortala-team {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 26px 22px;
+  border: 1px solid #e1eaf5;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 10px 30px rgba(15, 45, 85, .055);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.ortala-team:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 45, 85, .10);
+}
+
+/* KETUA TIM */
+.ortala-team-leader {
+  display: flex;
+  width: 100%;
+  min-height: 118px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #eff6ff, #f8fbff);
+}
+
+.ortala-team-leader img {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(37, 99, 168, .15);
+}
+
+/* PENGHUBUNG ANGGOTA */
+.ortala-member-connector {
+  width: 2px;
+  height: 30px;
+  margin: 0 auto;
+  background: #bdd1e8;
+}
+
+.ortala-connector-double {
+  height: 30px;
+}
+
+/* ANGGOTA TIM */
+.ortala-members {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 14px;
+}
+
+.ortala-members-double {
+  align-items: stretch;
+}
+
+.ortala-member {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 10px;
+  border: 1px solid #edf1f7;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.ortala-member img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border: 3px solid #edf4fc;
+  border-radius: 50%;
+}
+
+.ortala-member .ortala-person-info {
+  align-items: center;
+}
+
+.ortala-member .ortala-person-info span {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* KETERANGAN STRUKTUR */
+.ortala-hierarchy-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 28px auto 0;
+  padding: 14px 18px;
+  border: 1px solid #dce9f7;
+  border-radius: 14px;
+  background: #f3f8ff;
+  color: #315d8c;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 768px) {
+  .ortala-hierarchy {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .ortala-team-grid {
+    gap: 14px;
+  }
+
+  .ortala-team {
+    padding: 16px 12px;
+  }
+
+  .ortala-team-leader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ortala-team-leader .ortala-person-info {
+    align-items: center;
+  }
+
+  .ortala-members-double {
+    flex-direction: column;
+  }
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 520px) {
+  .ortala-hierarchy {
+    padding: 22px 12px;
+  }
+
+  .ortala-top-person {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .ortala-top-person img {
+    width: 70px;
+    height: 70px;
+    flex-basis: 70px;
+  }
+
+  .ortala-person-info span {
+    font-size: 13px;
+  }
+
+  .ortala-hierarchy-connector {
+    width: 50%;
+    height: 44px;
+  }
+
+  .ortala-vertical-line {
+    height: 22px;
+  }
+
+  .ortala-horizontal-line,
+  .ortala-left-line,
+  .ortala-right-line {
+    top: 22px;
+  }
+
+  .ortala-left-line,
+  .ortala-right-line {
+    height: 22px;
+  }
+
+  .ortala-team-grid {
+    gap: 10px;
+  }
+
+  .ortala-team {
+    padding: 12px 8px;
+    border-radius: 16px;
+  }
+
+  .ortala-team-leader {
+    min-height: 0;
+    padding: 12px 6px;
+    gap: 9px;
+  }
+
+  .ortala-team-leader img {
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+  }
+
+  .ortala-team-leader .ortala-person-info strong {
+    font-size: 9px;
+  }
+
+  .ortala-team-leader .ortala-person-info span {
+    font-size: 11px;
+  }
+
+  .ortala-member {
+    padding: 12px 5px;
+  }
+
+  .ortala-member img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .ortala-member .ortala-person-info span {
+    font-size: 11px;
+  }
+
+  .ortala-hierarchy-note {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+}
+
+
+/* RAPINYA_TIM_TATA_LAKSANA_V2 */
+
+/* Ketua Tim Tata Laksana */
+.ortala-team:last-child .ortala-team-leader {
+  justify-content: center;
+  text-align: left;
+}
+
+/* Dua anggota dibuat sejajar */
+.ortala-team:last-child .ortala-members-double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+.ortala-team:last-child .ortala-member {
+  min-width: 0;
+  min-height: 150px;
+  justify-content: flex-start;
+  padding: 18px 10px;
+  text-align: center;
+}
+
+.ortala-team:last-child .ortala-member img {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  object-fit: cover;
+}
+
+.ortala-team:last-child .ortala-member .ortala-person-info {
+  width: 100%;
+  min-height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ortala-team:last-child .ortala-member .ortala-person-info span {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .ortala-team:last-child .ortala-members-double {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .ortala-team:last-child .ortala-member {
+    min-height: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .ortala-team:last-child .ortala-member img {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+  }
+
+  .ortala-team:last-child .ortala-member .ortala-person-info {
+    align-items: flex-start;
+    min-height: 0;
+  }
+
+  .ortala-team:last-child .ortala-member .ortala-person-info span {
+    text-align: left;
+  }
+}
+
+
+/* PERBAIKAN_GARIS_TATA_LAKSANA_V3 */
+
+/* Garis dari ketua menuju percabangan */
+.ortala-team:last-child .ortala-member-connector {
+  position: relative;
+  width: 2px;
+  height: 26px;
+  margin: 0 auto;
+  background: #a8c5e8;
+}
+
+/* Area percabangan anggota */
+.ortala-team:last-child .ortala-members-double {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  padding-top: 20px;
+}
+
+/* Garis horizontal penghubung */
+.ortala-team:last-child .ortala-members-double::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #a8c5e8;
+}
+
+/* Kartu anggota */
+.ortala-team:last-child .ortala-members-double .ortala-member {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 18px 10px;
+  border: 1px solid #e1eaf5;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+/* Garis cabang berhenti tepat di tepi kartu */
+.ortala-team:last-child .ortala-members-double .ortala-member::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #a8c5e8;
+  transform: translateX(-50%);
+}
+
+/* Foto anggota */
+.ortala-team:last-child .ortala-members-double .ortala-member img {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  object-fit: cover;
+}
+
+/* Nama anggota */
+.ortala-team:last-child .ortala-members-double .ortala-person-info {
+  display: flex;
+  width: 100%;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ortala-team:last-child .ortala-members-double .ortala-person-info span {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Tampilan HP */
+@media (max-width: 520px) {
+  .ortala-team:last-child .ortala-members-double {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .ortala-team:last-child .ortala-members-double::before,
+  .ortala-team:last-child .ortala-members-double .ortala-member::before {
+    display: none;
+  }
+
+  .ortala-team:last-child .ortala-members-double .ortala-member {
+    min-height: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .ortala-team:last-child .ortala-members-double .ortala-person-info {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .ortala-team:last-child .ortala-members-double .ortala-person-info span {
+    text-align: left;
+  }
+}
+
+
+/* FINAL_STRUKTUR_TIM_V4 */
+
+/* Samakan kartu anggota kedua tim */
+.ortala-team .ortala-member {
+  min-height: 138px;
+  padding: 18px 10px;
+  border: 1px solid #e1eaf5;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.ortala-team .ortala-member img {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  object-fit: cover;
+  border: 3px solid #edf4fc;
+  border-radius: 50%;
+}
+
+.ortala-team .ortala-member .ortala-person-info {
+  width: 100%;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ortala-team .ortala-member .ortala-person-info span {
+  color: #172b45;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Garis penghubung tanpa celah */
+.ortala-team:last-child .ortala-member-connector {
+  position: relative;
+  width: 2px;
+  height: 28px;
+  margin: 0 auto;
+  background: #3769a9;
+}
+
+.ortala-team:last-child .ortala-members-double {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  padding-top: 18px;
+}
+
+.ortala-team:last-child .ortala-members-double::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #3769a9;
+}
+
+.ortala-team:last-child .ortala-members-double .ortala-member {
+  position: relative;
+  min-width: 0;
+  min-height: 138px;
+  padding: 18px 8px;
+}
+
+/* Garis cabang menyentuh garis horizontal dan kartu */
+.ortala-team:last-child .ortala-members-double .ortala-member::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 2px;
+  height: 18px;
+  background: #3769a9;
+  transform: translateX(-50%);
+}
+
+/* HP */
+@media (max-width: 520px) {
+  .ortala-team:last-child .ortala-members-double {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .ortala-team:last-child .ortala-members-double::before,
+  .ortala-team:last-child .ortala-members-double .ortala-member::before {
+    display: none;
+  }
+
+  .ortala-team:last-child .ortala-members-double .ortala-member {
+    min-height: 100px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 12px;
+    text-align: left;
+  }
+
+  .ortala-team:last-child .ortala-members-double .ortala-person-info {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+
+/* SEJAJARKAN_KARTU_ANGGOTA_V5 */
+
+/* Samakan dimensi seluruh kartu anggota */
+.ortala-team .ortala-member {
+  box-sizing: border-box;
+  height: 144px;
+  min-height: 144px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #e1eaf5;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ortala-team .ortala-member img {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  object-fit: cover;
+}
+
+.ortala-team .ortala-member .ortala-person-info {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Sejajarkan kartu Tata Laksana dengan kartu Organisasi */
+.ortala-team:last-child .ortala-member-connector {
+  height: 10px;
+  margin: 0 auto;
+  background: #3769a9;
+}
+
+.ortala-team:last-child .ortala-members-double {
+  padding-top: 20px;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.ortala-team:last-child .ortala-members-double::before {
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #3769a9;
+}
+
+.ortala-team:last-child .ortala-members-double .ortala-member {
+  height: 144px;
+  min-height: 144px;
+  position: relative;
+  padding: 12px 8px;
+}
+
+.ortala-team:last-child .ortala-members-double .ortala-member::before {
+  top: -20px;
+  height: 20px;
+  background: #3769a9;
+}
+
+/* Tampilan HP */
+@media (max-width: 520px) {
+  .ortala-team .ortala-member {
+    height: auto;
+    min-height: 100px;
+  }
+
+  .ortala-team:last-child .ortala-member-connector {
+    height: 30px;
+  }
+
+  .ortala-team:last-child .ortala-members-double {
+    padding-top: 0;
+  }
+
+  .ortala-team:last-child .ortala-members-double::before,
+  .ortala-team:last-child .ortala-members-double .ortala-member::before {
+    display: none;
+  }
+
+  .ortala-team:last-child .ortala-members-double .ortala-member {
+    height: auto;
+    min-height: 100px;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+
+/* SERAGAMKAN_GARIS_BAGAN_V6 */
+
+/* Standarisasi seluruh garis bagan */
+.ortala-hierarchy .ortala-vertical-line,
+.ortala-hierarchy .ortala-left-line,
+.ortala-hierarchy .ortala-right-line,
+.ortala-hierarchy .ortala-member-connector {
+  width: 2px !important;
+  background-color: #a8c5e8 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ortala-hierarchy .ortala-horizontal-line,
+.ortala-hierarchy .ortala-members-double::before {
+  height: 2px !important;
+  background-color: #a8c5e8 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ortala-hierarchy .ortala-members-double .ortala-member::before {
+  width: 2px !important;
+  background-color: #a8c5e8 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Pastikan garis vertikal utama tetap menyambung */
+.ortala-hierarchy .ortala-vertical-line,
+.ortala-hierarchy .ortala-left-line,
+.ortala-hierarchy .ortala-right-line {
+  display: block;
+}

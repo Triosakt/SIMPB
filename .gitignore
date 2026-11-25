@@ -1,0 +1,45 @@
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build dan testing
+dist/
+**/dist/
+build/
+coverage/
+
+# Environment dan konfigurasi rahasia
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Upload pengguna
+backend/uploads/
+
+# Folder pengembangan
+_arsip-pengembangan/
+
+# File log
+*.log
+
+# File sementara dan backup
+*.bak
+*.backup
+*.orig
+*.bak-*
+*.bak[0-9]*
+*.backup-*
+*.upload-backup
+*.broken-backup.jsx
+*.bak-notif-*
+*.bak-notifikasi-*
+
+# Script pengembangan sementara
+pasang-*.cjs
+rapikan-folder-simpb.cjs
+
+# File sistem
+.DS_Store
+Thumbs.db

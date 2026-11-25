@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-accent text-white hover:bg-primary; }
+  .btn-ghost { @apply btn border border-line bg-white text-ink hover:bg-surface-muted; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .input { @apply w-full rounded-lg border border-line bg-white px-3 py-2 text-sm placeholder:text-ink-soft focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30; }
+  .label { @apply mb-1 block text-sm font-medium text-ink; }
+  .panel { @apply rounded-xl border border-line bg-white; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ===== Print-friendly (modul Print Statistik) ===== */
+.print-only { display: none; }
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: #fff !important; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .panel { border-color: #cbd5e1; break-inside: avoid; }
+  main { padding: 0 !important; }
+  .print-wrap { margin: 0 !important; max-width: none !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ===== SIMPB PREMIUM NAVIGATION ===== */
+.simp-sidebar {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(34,211,238,.13), transparent 38%),
+    radial-gradient(ellipse at 100% 55%, rgba(59,130,246,.12), transparent 40%),
+    linear-gradient(165deg, #071426 0%, #0a2340 48%, #103c63 100%) !important;
+  border-right: 1px solid rgba(255,255,255,.09);
+  box-shadow: 14px 0 45px rgba(5,20,40,.12);
+}
+
+.simp-brand {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.025)) !important;
+  border-color: rgba(255,255,255,.12) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12), inset 0 1px rgba(255,255,255,.08);
+}
+
+.simp-brand::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -42px;
+  top: -52px;
+  border-radius: 50%;
+  background: rgba(34,211,238,.22);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+.simp-nav-link {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid transparent;
+  color: rgba(226,238,252,.78);
+  transform: translateZ(0);
+}
+
+.simp-nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 3px;
+  border-radius: 0 5px 5px 0;
+  background: #67e8f9;
+  opacity: 0;
+  transform: scaleY(.4);
+  transition: opacity .22s ease, transform .22s ease;
+}
+
+.simp-nav-link:hover {
+  transform: translateX(3px);
+  color: #fff;
+  border-color: rgba(255,255,255,.08);
+  background: linear-gradient(100deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
+}
+
+.simp-nav-link:hover::before {
+  opacity: .8;
+  transform: scaleY(1);
+}
+
+.simp-nav-link:has(svg) svg {
+  flex-shrink: 0;
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.simp-nav-link:hover svg {
+  transform: scale(1.09);
+  filter: drop-shadow(0 0 5px rgba(103,232,249,.35));
+}
+
+.simp-nav-link[aria-current="page"] {
+  color: #071a35 !important;
+  border-color: rgba(255,255,255,.55);
+  background: linear-gradient(110deg,#a5f3fc 0%,#67e8f9 38%,#93c5fd 100%) !important;
+  box-shadow: 0 5px 22px rgba(34,211,238,.19), inset 0 1px rgba(255,255,255,.7) !important;
+}
+
+.simp-nav-link[aria-current="page"]::before {
+  display: none;
+}
+
+.simp-nav-link[aria-current="page"] svg {
+  filter: drop-shadow(0 1px 1px rgba(7,26,53,.12));
+}
+
+.simp-sidebar nav > div > button {
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  transition: background .22s ease, border-color .22s ease, color .22s ease;
+}
+
+.simp-sidebar nav > div > button:hover,
+.simp-sidebar nav > div > button[aria-expanded="true"] {
+  background: rgba(255,255,255,.085);
+  border-color: rgba(255,255,255,.09);
+  color: white;
+}
+
+.simp-sidebar nav > div > button[aria-expanded="true"] > svg:last-child {
+  color: #67e8f9;
+}
+
+.simp-sidebar nav > div > div[class*="absolute"][class*="left-full"] {
+  background: rgba(7,26,47,.97) !important;
+  border: 1px solid rgba(148,210,255,.17);
+  border-radius: 18px;
+  box-shadow: 0 24px 65px rgba(0,0,0,.34), 0 0 24px rgba(34,211,238,.06);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.simp-sidebar nav > div > div[class*="absolute"][class*="left-full"] .simp-nav-link {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simp-nav-link,
+  .simp-nav-link::before,
+  .simp-nav-link svg {
+    transition: none !important;
+  }
+
+  .simp-nav-link:hover {
+    transform: none;
+  }
+}
+
+/* SIMPB — refined vertical accordion */
+.simp-submenu {
+  position: relative;
+  animation: simp-accordion-in 200ms ease-out both;
+}
+
+@keyframes simp-accordion-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.simp-submenu .simp-nav-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.simp-sidebar nav > div > button[aria-expanded="true"] {
+  background: rgba(103, 232, 249, 0.09);
+  border-color: rgba(103, 232, 249, 0.15);
+  color: #fff;
+}
+
+.simp-sidebar nav > div > button > svg:last-child {
+  transition: transform 200ms ease, color 200ms ease;
+}
+
+.simp-sidebar nav > div > button[aria-expanded="true"] > svg:last-child {
+  transform: rotate(180deg);
+  color: #67e8f9;
+}
+
+.simp-sidebar nav > div > button:hover {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simp-submenu {
+    animation: none;
+  }
+}
+
+/* Hide sidebar scrollbar while preserving scrolling */
+.simp-sidebar nav {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simp-sidebar nav::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* SIMPB NAVBAR SCROLL FIX */
+html { scroll-padding-top: 92px; }
+#tugas-utama, #struktur { scroll-margin-top: 92px; }
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(0) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(350%) skewX(-20deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+@keyframes bgzoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
